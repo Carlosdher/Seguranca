@@ -1,0 +1,8 @@
+{% extends 'inicial.html' %}
+
+{% block content %}
+	{% for object in object_list %}
+	<a href="{% url 'app:mensagen' object.pk %}"></a><h1>{{object}}</h1>
+	{% endfor %}
+
+{% endblock %}
