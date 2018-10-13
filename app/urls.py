@@ -14,9 +14,10 @@ app_name = 'app'
 urlpatterns = [
 
 	path('', uno.Inicial.as_view(), name='Home'),
+	path('cadastro', uno.Cadastro.as_view(), name='cadastro'),
 	path('mensagen', uno.Canal.as_view(), name='sender'),
 	path('caixa', uno.CaixaDeEmail.as_view(), name='lista'),
-	path('caixa/<pk>/', uno.Email.as_view(), name='mensagen'),
+	path('caixa/teste', uno.Email.as_view(), name='mensagen'),
 	path('login/', auth_views.LoginView.as_view(template_name='user/auth.html'), name='login')
 
 

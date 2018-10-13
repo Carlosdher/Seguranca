@@ -22,8 +22,8 @@ class CreateUpdateModel(models.Model):
 class UUIDUser(AbstractUser):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    groups = models.ManyToManyField(Group, blank=True, related_name="uuiduser_set", related_query_name="user")
-    user_permissions = models.ManyToManyField(Permission, blank=True, related_name="uuiduser_set", related_query_name="user")
+    chave_pul = models.TextField()
+    
 
     def __str__(self):
         return self.username
@@ -36,12 +36,18 @@ class UUIDUser(AbstractUser):
 class Canal(CreateUpdateModel):
 	sender = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='usuario')
 	receber = models.ForeignKey(UUIDUser, on_delete=models.CASCADE, related_name='user' )
-	key_pul = models.CharField(max_length=300)
 #Mensagen
 class Mensagen(CreateUpdateModel):
-	key_p = models.CharField(max_length=300)
-	email = models.TextField(null=True, blank=True)
-	canal = models.ForeignKey(Canal, on_delete=models.CASCADE, related_name='canal')
+    user = models.ForeignKey(UUIDUser, on_delete=models.CASCADE)
+    email = models.TextField(null=True, blank=True)
+    canal = models.ForeignKey(Canal, on_delete=models.CASCADE, related_name='canal')
 
 
 
+##Mudar a implementação
+
+##Criar cada Chave para usuário
+
+##Chave publica por mensagem
+
+##Export key

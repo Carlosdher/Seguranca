@@ -1,0 +1,18 @@
+{% extends 'inicial.html' %}
+
+{% block content %}
+	<div class="formularios box " >
+		<h2 style="text-align: center;" >MENSAGENS</h2>
+		{% for objects in mensagen %}
+			{{ objects }}
+		{% endfor %}
+
+		<form method="post" >
+			{% csrf_token %}
+			<input type="text" value="email" class="input-group" placeholder="TEXTO...">
+			<button type="submit" class="btn btn-success btn-sm" style="float: right;">Enviar</button>
+		</form>
+		<a href="{% url 'app:lista' %}"><button class="btn btn-sm btn-info" style="float: left;">Caixa de Entrada</button></a>
+	</div>
+
+{% endblock %}

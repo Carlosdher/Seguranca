@@ -1,10 +1,9 @@
 {% extends '../inicial.html' %}
 
 {% block content %}
-
 <div class="formularios box " >
-	<h2 style="text-align: center;" >LOGIN</h2>
-<form method="post">
+	<h2 style="text-align: center;" >CADASTRO</h2>
+<form method="post" action="{% url 'app:login' %}">
 	{% csrf_token %}
 		<div class="input-group" style="width: 90%; margin: 30px 25%;">
             <span class="input-group-addon" >@</span>
@@ -15,11 +14,11 @@
 				<input type="password" name="password" class="form-control controle"  placeholder="Password" style="width: 50%;">
     </div>
 	
-	<button type="submit" class="btn btn-success btn-sm" style="float: right;">Entrar</button>
+	<button type="submit" class="btn btn-success btn-sm" style="float: right;" >Entrar</button>
 	
 </form>
 
-<a href="{% url 'app:cadastro' %}"><button class="btn btn-sm btn-info" style="float: left;">Cadastro</button></a>
+<a href="{% url 'app:login' %}"><button class="btn btn-sm btn-danger" style="float: left;">Cancelar</button></a>
 </div>
 
 {% endblock %}

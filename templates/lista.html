@@ -1,8 +1,18 @@
 {% extends 'inicial.html' %}
 
 {% block content %}
-	{% for object in object_list %}
-	<a href="{% url 'app:mensagen' object.pk %}"></a><h1>{{object}}</h1>
-	{% endfor %}
+		<div class="formularios box " >
+
+		<h2 style="text-align: center;" >CAIXA DE ENTRADA</h2>
+			{% for object in object_list %}
+				{% if object.sender == request.user %}
+					<a href="{% url 'app:mensagen' %}"><h3>{{object.receber}}</h3></a><br>
+				{% else %}
+					<a href="{% url 'app:mensagen' %}"><h3>{{object.sender}}</h3></a><br>
+				{% endif %}
+			{% endfor %}
+			<a href="{% url 'app:sender' %}"><button class="btn btn-sm btn-success" style="float: left;">Criar canal</button></a>
+		</div>
+
 
 {% endblock %}

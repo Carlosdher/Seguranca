@@ -79,7 +79,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'postgres': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.path.join(BASE_DIR, 'users.sql'),
+        'USER': 'teste',
+        'PASSWORD': 'testando12',
+}
 }
 
 
@@ -103,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTH_USER_MODEL = 'app.UUIDUser'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/caixa/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Internationalization

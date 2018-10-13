@@ -1,13 +1,15 @@
 {% extends 'inicial.html' %}
 
 {% block content %}
+<div class="formularios box " >
+		<h2 style="text-align: center;" >CRIAR CHAT</h2>
 
 	<form method="post" >
 		{% csrf_token %}
-		{% for field in form.visible_fields %}
-			{{field}}
-		{% endfor %}
-		<input type="submit" value="Enviar">
+		{{form.as_p}}
+		<button type="submit" class="btn btn-success btn-sm" style="float: right;">CRIAR</button>
 	</form>
+<a href="{% url 'app:lista' %}"><button class="btn btn-sm btn-danger" style="float: left;">Cancelar</button></a>
+</div>
 
 {% endblock %}
